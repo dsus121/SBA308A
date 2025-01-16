@@ -1,10 +1,5 @@
-import { colorOfTheYear } from "./colorData.js"; // Adjust the path as needed
-import {
-  fetchWeatherApi,
-  getHumidity,
-  getTemperature,
-  getWindSpeed,
-} from "./meteo.js"; // Adjust the path as needed
+import { colorOfTheYear } from "./colorData.js";
+import { fetchWeatherApi } from "./meteo.js";
 
 const latitude = 52.52;
 const longitude = 13.41;
@@ -49,16 +44,17 @@ async function logAverageTemperatures() {
       console.log(
         `In ${result.year} the average temperature was ${result.averageTemperature}°C.`
       );
+      const newDiv = document.createElement("div");
+      newDiv.textContent = `${
+        result.year
+      } - the average temperature was ${result.averageTemperature.toFixed(
+        1
+      )}°C`;
+      document.body.appendChild(newDiv);
     }
   }
 }
-
+// create the format in the html
 logAverageTemperatures();
 
-console.log(colorOfTheYear[2024]);
-
-console.log(getTemperature());
-
-console.log(getHumidity());
-
-console.log(getWindSpeed());
+console.log(colorOfTheYear[2000]);

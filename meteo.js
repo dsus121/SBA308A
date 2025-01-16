@@ -18,19 +18,3 @@ export const fetchWeatherApi = async (url, params) => {
   }
 };
 
-
-       function getTemperature() {
-        return "Temperature is 20°C";
-      }
-      
-      function getHumidity() {
-        return "Humidity is 80%";
-      }
-      
-      function getWindSpeed() {
-        return "Wind speed is 10 km/h";
-      }
-      
-      export { getTemperature, getHumidity, getWindSpeed };
-      
-    
