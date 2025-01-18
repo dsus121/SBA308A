@@ -1,4 +1,102 @@
-body {/* Solid color background */
-    background: rgb(252,176,69);
-    background: linear-gradient(90deg, rgba(252,176,69,1) 0%, rgba(0,0,0,1) 50%, rgba(252,176,69,1) 100%);
+body {
+  background: rgb(69, 97, 252);
+  background: linear-gradient(
+    90deg,
+    rgba(69, 97, 252, 1) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(69, 97, 252, 1) 100%
+  );
+}
+
+#big-ole-box {
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+select {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  width: 200px;
+}
+
+select:hover {
+  background-color: rgb(69, 97, 252);
+}
+
+#year-dropdown option {
+  background-color: black;
+  color: white;
+}
+
+/* #year-dropdown:focus {
+  outline: none;
+  border-color: rgb(69, 97, 252);
+} */
+
+#hot-button {
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+
+  background-color: black;
+  color: whitesmoke;
+  width: calc(100% / 5 - 10px);
+  height: 20%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  cursor: crosshair;
+  border-radius: 10px;
+}
+
+#temperatures {
+  width: 25%;
+  height: 100%;
+  float: left;
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.grid-container {
+  width: 75%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
+  position: relative;
+}
+
+.box {
+  background: rgb(69, 97, 252);
+  /* height: auto; */
+  flex: 1;
+  border: 1px solid black;
+  margin: 5px;
+  aspect-ratio: 1 / 1;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
