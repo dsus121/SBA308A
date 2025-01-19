@@ -47,7 +47,7 @@ const fetchWeatherApiFunc = async () => {
 
     const temperatureData = data.hourly.temperature_2m;
     const timeData = data.hourly.time; // added this line to get the time data
-    console.log("Temperature data:", temperatureData); // the temperature data
+    // console.log("Temperature data:", temperatureData); // the temperature data
 
     // process the data
     for (let year = 2000; year <= 2024; year++) {
@@ -57,7 +57,7 @@ const fetchWeatherApiFunc = async () => {
           // getFullYear() is a cool built-in Javascript method
         });
 
-        console.log(`Data for year ${year}:`, yearData); // log the data for each year
+        // console.log(`Data for year ${year}:`, yearData); // log the data for each year
 
         // average temperature for each year
     if (yearData.length > 0) {
@@ -101,6 +101,12 @@ function populateYearDropdown() {
       yearDropdown.appendChild(option);
     }
   }
+
+  //  a container for the temporary data
+const tempDataDiv = document.createElement("div");
+tempDataDiv.id = "temporary-data-container";
+tempDataDiv.style.marginBottom = "20px"; // Add some margin to separate from logged data
+
   
   yearDropdown.addEventListener("change", (event) => {
     const year = event.target.value;
@@ -130,112 +136,61 @@ function displayDataTemporarily(data) {
   dataDiv.style.textAlign = "center";
   dataDiv.style.fontSize = "12px";
 
+
   temperatureDiv.appendChild(dataDiv);
 
-  // Remove the data after 5 seconds
+  // remove the data after 5 seconds
   setTimeout(() => {
     dataDiv.remove();
-  }, 5000);
+  }, 3000);
 }
 
 function logAverageTemperatures() {
     const temperatureDiv = document.getElementById("temperature");
     const gridContainer = document.getElementById("grid-container");
   
-    if (!temperatureDiv || !gridContainer) {
-      console.error("Required elements not found");
+    if (!temperatureDiv || !gridContainer) { // checking that they exist
+      console.error("Required elements not found"); // error logging
       return;
     }
   
-    temperatureDiv.innerHTML = "";
-    gridContainer.innerHTML = "";
+    // a new container for the temperature data
+    const temperatureDataDiv = document.createElement("div");
+    temperatureDataDiv.id = "temperature-data-container";
+    temperatureDataDiv.style.marginTop = "20px"; // adding some margin to push it down
   
-    for (let year = 2024; year >= 2000; year--) {
+  // function to display temperature data with a delay
+  function displayTemperatureData(year, delay) {
+    setTimeout(() => {
       const averageTemperature = YearsAndTemps[year];
       if (averageTemperature !== null && averageTemperature !== undefined) {
         console.log(`In ${year} the average temperature was ${averageTemperature}°C.`);
         const newDiv = document.createElement("div");
         newDiv.textContent = `${year} - the average temperature was ${averageTemperature.toFixed(1)}°C`;
-        temperatureDiv.appendChild(newDiv);
+        temperatureDataDiv.appendChild(newDiv);
       } else {
         console.error(`No data for year: ${year}`);
       }
-    }
+    }, delay);
   }
 
-    // Fetch weather data on page load and then log temperatures
+  // loop through each year with a delay
+  let delay = 0;
+  for (let year = 2024; year >= 2000; year--) {
+    displayTemperatureData(year, delay);
+    delay += 200; 
+  }
+
+    // append the temperature data container
+    temperatureDiv.appendChild(temperatureDataDiv);
+  }
+
+    // fetch weather data on page load and log year/temp
     document.addEventListener("DOMContentLoaded", async () => {
+        try {
         await fetchWeatherApiFunc();
-        logAverageTemperatures();
+        // logAverageTemperatures();
+      } catch (error) {
+        console.error("Error loading data:", error);
       }
-    );
-// ================================================================================||
-// 4] write a function to build the grid
-//  -  call it
-// ================================================================================||
-
-const gridContainer = document.querySelector(".grid-container");
-
-// populate the grid in a function
-// function populateGrid() {
-//   for (let i = 1; i <= 25; i++) {
-//     const boxDiv = document.createElement("div");
-//     boxDiv.id = `box${i}`;
-//     boxDiv.className = "box";
-//     boxDiv.textContent = i;
-//     gridContainer.appendChild(boxDiv);
-//   }
-// }
-
-// populateGrid();
-
-
-// ================================================================================||
-// 5] write a function to pull in the Color of the Year data and 
-//    link it to the year/temp data
-//  - write a function to display the year/color in a spiral-esque format <- matrix
-// ================================================================================||
-
-
-// ================================================================================||
-// 6] create a button 
-//  -  onclick start the spiral display
-// ================================================================================||
-
-// setInterval(populateGridSpiral(), 10000)
-
-// const result = { year: year, averageTemperature: roundedTemperature };
-
-
-
-document.getElementById("hot-button").addEventListener("click", () => {
-  document.getElementById("hot-button").style.display = "none";
-  logAverageTemperatures();
-});
-
-// async function fetchWeatherData(year) {
-
-
-// ================================================================================||
-// 7] deal with 2025 data  
-//    
-//  
-// ================================================================================||
-
-// fetch temperature for 2025
-
-//   const temp2025 = await getAverageTemperature(2025);
-//   if (temp2025) {
-//     console.log(
-//       `In ${temp2025.year} the average temperature was ${temp2025.averageTemperature}°C.`
-//     );
-//     const newDiv = document.createElement("div");
-//     newDiv.textContent = `${
-//       temp2025.year
-//     } - the average temperature was ${temp2025.averageTemperature.toFixed(
-//       1
-//     )}°C`;
-//     temperatureDiv.appendChild(newDiv);
-//   }
-
-
+      });
