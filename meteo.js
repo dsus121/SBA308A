@@ -115,8 +115,33 @@ tempDataDiv.id = "temporary-data-container";
 
 // tempDataDiv.style.marginBottom = "40px"; // Add some margin to separate from logged data
 
-  
+
+// ================================================================================||
+// 2a] adding in audio when the dropdown is clicked
+//  - song snippet is "Weatherman" by Dead Sara
+// ================================================================================||
+
+const audio = document.getElementById("background-music");
+const muteButton = document.getElementById("mute-button");
+
+// Play the audio when a year is selected from the dropdown
+yearDropdown.addEventListener("change", () => {
+  audio.play();
+});
+
+// Toggle mute on button click
+muteButton.addEventListener("click", () => {
+  if (audio.muted) {
+    audio.muted = false;
+    muteButton.textContent = "Mute";
+  } else {
+    audio.muted = true;
+    muteButton.textContent = "Unmute";
+  }
+});
+
   yearDropdown.addEventListener("change", (event) => {
+
     const year = event.target.value;
     const temperature = YearsAndTemps[year];
     displayDataTemporarily({ year, temperature });
@@ -203,4 +228,6 @@ function logAverageTemperatures() {
         console.error("Error loading data:", error);
       }
       });
+
+
 

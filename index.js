@@ -43,11 +43,11 @@ populateGrid();
 
 
 
-document.getElementById("hot-button").addEventListener("click", () => {
+document.getElementById("color-button").addEventListener("click", () => {
   const gridContainer = document.getElementById("grid-container");
 
   // hide the button after it's clicked
-  document.getElementById("hot-button").style.display = "none";
+  document.getElementById("color-button").style.display = "none";
   
   const startYear = 2000;
   const endYear = 2024;

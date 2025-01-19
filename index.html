@@ -8,24 +8,41 @@
 </head>
 <body>
     <script type="module" src="index.js" defer></script>
+    <div class="tippy-top-container">
+<blockquote>"... addicted to the love of ourselves, I'm the Weatherman ..."</blockquote>
+<button id="mute-button">mute</button>
+</div>
+
+<audio id="background-music" loop>
+    <source src="WeathermanByDeadSara_edit.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 
     <div id="big-ole-box">
                 <div id="temperature">
                     <select id="year-dropdown">
-                        <!-- <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option> -->
+                        <!-- options are populated dynamically now  -->
                       </select>
                       
 
                 </div>
         <div class="grid-container" id="grid-container">
-            <button id="hot-button">"Color is the smile of nature." <br>- Leigh Hunt</button>
+            <button id="color-button">
+                <p>"Color is the smile of nature." <br>- Leigh Hunt</p>
+                <p>
+                    <strong>What does the selection of the Pantone Color of the Year represent?</strong><br><br>
 
-            <!-- <div id="box01" class="box" style="grid-column: 1; grid-row: 1;">01</div>
+                    The color we select to be our Pantone Color of the Year is bigger than one region or one sector of design. 
+                    It is a color we see crossing all areas of design; a color that serves as an expression of a mood and an 
+                    attitude on the part of the consumers, a color that will resonate around the world, a color that reflects 
+                    what people are looking for, <em>a color that can hope to answer what they feel they need</em>.
+                </p>
+
+            </button>
+
+            <!-- preserving this just in case, but column/row order defines how the color
+             blocks with come in
+             <div id="box01" class="box" style="grid-column: 1; grid-row: 1;">01</div>
             <div id="box02" class="box" style="grid-column: 2; grid-row: 1;">02</div>
             <div id="box03" class="box" style="grid-column: 3; grid-row: 1;">03</div>
             <div id="box04" class="box" style="grid-column: 4; grid-row: 1;">04</div>
@@ -53,6 +70,8 @@
             <div id="box26" class="box" style="grid-column: 3; grid-row: 3;">00</div> -->
         </div>
 </div>
-
+<a href="https://www.pantone.com/articles/color-of-the-year/what-is-color-of-the-year" target="_blank">
+    learn more about the Pantone Color of the Year
+</a>
 </body>
 </html>
