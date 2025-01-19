@@ -90,7 +90,7 @@ select:hover {
 }
 
 .grid-container {
-  height: 90%;
+  height: 90vh;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);

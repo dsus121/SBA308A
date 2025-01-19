@@ -237,14 +237,18 @@ export function populateGridSpiral(gridContainer, startYear, endYear) {
         boxDiv.textContent = `${colorData.year} - ${colorData.colorNameOne} (${colorData.colorHexOne})`;
       }
 
-      boxDiv.style.color = "#fff"; 
+      boxDiv.style.color = "#fff"; // Ensure text color is readable
+      boxDiv.style.height = "18vh";
+  
 
     setTimeout(() => {
+
       gridContainer.appendChild(boxDiv);
+
     }, delay);
   };
 
-  for (let year = endYear; year >= startYear; year--) {
+  for (let year = startYear; year <= endYear; year++) {
     const colorData = colorOfTheYear[year];
     if (colorData && index < spiralOrder.length) {
       const delay = index * colorDelay;
