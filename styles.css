@@ -9,8 +9,8 @@ body {
 }
 
 #big-ole-box {
-  width: 100vw;
-  height: 100vh;
+  width: 90vw;
+  height: 90vh;
   padding: 20px;
   display: flex;
   justify-content: space-around;
@@ -52,7 +52,6 @@ select:hover {
   top: 50%;
   left: 50%;
   padding: 20px;
-
   background-color: black;
   color: whitesmoke;
   width: calc(100% / 5 - 10px);
@@ -63,10 +62,23 @@ select:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: none;
   cursor: crosshair;
-  border-radius: 10px;
+  /* border-radius: 10px; */
+}
+
+#temporary-data-container {
+  color: #A57865;
+}
+#temporary-data {
+  font-size: 20px;
+  color: #A57865;
+  padding: 10px;
+  margin: 10px auto;
+  width: 70%;
+  text-align: center;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  /* border-radius: 5px; */
 }
 
 #temperatures {
@@ -78,25 +90,30 @@ select:hover {
 }
 
 .grid-container {
-  width: 75%;
+  height: 90%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap: 10px;
+  gap: 5px;
   position: relative;
 }
 
 .box {
   background: rgb(69, 97, 252);
-  /* height: auto; */
+  font-family: Arial, Helvetica, sans-serif;
+  height: auto;
+  display: flex;
   flex: 1;
   border: 1px solid black;
   margin: 5px;
   aspect-ratio: 1 / 1;
   text-align: center;
   vertical-align: middle;
-  display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 10px;
+  word-wrap: break-word;
+  color: #fff;
+  font-size: 14px;
 }

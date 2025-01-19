@@ -18,7 +18,6 @@ function populateGrid() {
     const boxDiv = document.createElement("div");
     boxDiv.id = `box${i}`;
     boxDiv.className = "box";
-    boxDiv.textContent = i;
     gridContainer.appendChild(boxDiv);
   }
 }

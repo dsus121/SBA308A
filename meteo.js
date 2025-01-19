@@ -112,7 +112,8 @@ function populateYearDropdown() {
   //  a container for the temporary data
 const tempDataDiv = document.createElement("div");
 tempDataDiv.id = "temporary-data-container";
-tempDataDiv.style.marginBottom = "20px"; // Add some margin to separate from logged data
+
+// tempDataDiv.style.marginBottom = "40px"; // Add some margin to separate from logged data
 
   
   yearDropdown.addEventListener("change", (event) => {
@@ -135,13 +136,14 @@ const temperatureDiv = document.getElementById("temperature");
 function displayDataTemporarily(data) {
   const dataDiv = document.createElement("div");
   dataDiv.id = "temporary-data";
-  dataDiv.textContent = `Year: ${data.year}, Temp: ${data.temperature}°C`;
-  dataDiv.style.color = "#fff";
-  dataDiv.style.padding = "10px";
+  dataDiv.textContent = `${data.year} \n ${data.temperature}°C`;
+  dataDiv.style.color = "#A57865";
+  dataDiv.style.padding = "5px";
   dataDiv.style.margin = "10px auto";
-  dataDiv.style.width = "70%";
+  dataDiv.style.width = "60%";
   dataDiv.style.textAlign = "center";
-  dataDiv.style.fontSize = "12px";
+  dataDiv.style.fontSize = "40px";
+  dataDiv.style.fontFamily = "courier";
 
 
   temperatureDiv.appendChild(dataDiv);
@@ -185,7 +187,7 @@ function logAverageTemperatures() {
   let delay = 0;
   for (let year = 2024; year >= 2000; year--) {
     displayTemperatureData(year, delay);
-    delay += 200; 
+    delay += 100; 
   }
 
     // append the temperature data container

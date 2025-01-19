@@ -201,6 +201,9 @@ export function populateGridSpiral(gridContainer, startYear, endYear) {
     return;
   }
 
+  gridContainer.innerHTML = "";
+
+
   let index = 0;
 
   // set a delay for loading each color slowly
@@ -216,10 +219,25 @@ export function populateGridSpiral(gridContainer, startYear, endYear) {
     boxDiv.style.gridRowStart = row;
     boxDiv.style.gridColumnStart = col;
 
-    boxDiv.style.backgroundColor = colorData.colorHexOne;
-    boxDiv.style.color = colorData.colorHexTwo ? colorData.colorHexTwo : "#fff";
+    // year: 2021,
+    // colorNameOne: "Ultimate Gray",
+    // colorPCodeOne: "Pantone 13-0647",
+    // colorHexOne: "#959A9C",
+    // colorNameTwo: "Illuminating",
+    // colorPCodeTwo: "Pantone 13-0647",
+    // colorHexTwo: "#F8D948",
 
-    boxDiv.textContent = `${colorData.year} - ${colorData.colorNameOne}`;
+    if (colorData.colorHexTwo) {
+        // Use a gradient if there are two colors
+        boxDiv.style.background = `linear-gradient(to right, ${colorData.colorHexOne}, ${colorData.colorHexTwo})`;
+        boxDiv.textContent = `${colorData.year} - ${colorData.colorNameOne} (${colorData.colorHexOne}) & ${colorData.colorNameTwo} (${colorData.colorHexTwo})`;
+      } else {
+        // Use a single color if there is only one
+        boxDiv.style.backgroundColor = colorData.colorHexOne;
+        boxDiv.textContent = `${colorData.year} - ${colorData.colorNameOne} (${colorData.colorHexOne})`;
+      }
+
+      boxDiv.style.color = "#fff"; 
 
     setTimeout(() => {
       gridContainer.appendChild(boxDiv);
