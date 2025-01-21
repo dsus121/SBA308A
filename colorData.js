@@ -165,7 +165,7 @@ export const colorOfTheYear = {
   },
 };
 
-// Spiral order array
+// spiral order array col / row
 const spiralOrder = [
   [1, 1],
   [2, 1],
@@ -237,7 +237,7 @@ export function populateGridSpiral(gridContainer, startYear, endYear) {
         boxDiv.textContent = `${colorData.year} - ${colorData.colorNameOne} (${colorData.colorHexOne})`;
       }
 
-      boxDiv.style.color = "#fff"; // Ensure text color is readable
+      boxDiv.style.color = "#fff"; 
       boxDiv.style.height = "18vh";
   
 

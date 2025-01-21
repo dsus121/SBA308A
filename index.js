@@ -50,7 +50,7 @@ document.getElementById("color-button").addEventListener("click", () => {
   document.getElementById("color-button").style.display = "none";
   
   const startYear = 2000;
-  const endYear = 2024;
+  const endYear = 2025;
   
   // populate the grid in a spiral order with color data
   populateGridSpiral(gridContainer, startYear, endYear);

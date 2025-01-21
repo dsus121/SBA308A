@@ -32,8 +32,8 @@ const fetchWeatherApiFunc = async () => {
   const params = {
     latitude: 39.74,
     longitude: 104.99,
-    start_date: "2000-01-01",   // changing the dates for a smaller data set
-    end_date: "2024-12-31",
+    start_date: "1990-01-01",   // changing the dates for a smaller data set
+    end_date: "2025-01-16",
     hourly: "temperature_2m",
   };
 
@@ -57,7 +57,7 @@ const fetchWeatherApiFunc = async () => {
     // console.log("Temperature data:", temperatureData); // the temperature data
 
     // process the data
-    for (let year = 2000; year <= 2024; year++) {
+    for (let year = 1990; year <= 2025; year++) {
         const yearData = temperatureData.filter((temp, index) => {
           const date = new Date(timeData[index]);
           return date.getFullYear() === year; // filter temperatures by year
@@ -94,8 +94,8 @@ const fetchWeatherApiFunc = async () => {
 //  - write a funtion to display the year/temp data for the chosen year 
 // ================================================================================||
 
-const START_YEAR = 2000;
-const END_YEAR = 2024; // define the start year globally
+const START_YEAR = 1990;
+const END_YEAR = 2025; // define the start year globally
 
 // thank the maker for the cat lab
 const yearDropdown = document.getElementById("year-dropdown");
@@ -173,10 +173,10 @@ function displayDataTemporarily(data) {
 
   temperatureDiv.appendChild(dataDiv);
 
-  // remove the data after 5 seconds
+  // remove the data after 6 seconds
   setTimeout(() => {
     dataDiv.remove();
-  }, 3000);
+  }, 6000);
 }
 
 function logAverageTemperatures() {
@@ -210,9 +210,9 @@ function logAverageTemperatures() {
 
   // loop through each year with a delay
   let delay = 0;
-  for (let year = 2024; year >= 2000; year--) {
+  for (let year = 2025; year >= 1990; year--) {
     displayTemperatureData(year, delay);
-    delay += 100; 
+    delay += 60; 
   }
 
     // append the temperature data container
